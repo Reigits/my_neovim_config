@@ -1,0 +1,19 @@
+# Neovim swap files and backups
+*.swp
+*.swo
+*~
+
+# Neovim history and cache
+*.shada
+.netrwhist
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Test files
+.class
+.java
+.c
+.exe
+.o
