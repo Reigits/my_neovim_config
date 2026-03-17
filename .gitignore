@@ -12,8 +12,9 @@
 Thumbs.db
 
 # Test files
-.class
-.java
-.c
-.exe
-.o
+*.class
+*.java
+*.c
+*.exe
+*.o
+*.py
