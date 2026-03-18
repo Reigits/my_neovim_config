@@ -10,7 +10,6 @@ return {
         changedelete = { text = '~' },
         untracked    = { text = '┆' },
       },
-      
       -- Toggles what actually gets highlighted
       signcolumn = true,  -- Shows the symbols next to the numbers
       numhl      = false, -- Set to true if you want the actual line number to change color
