@@ -24,7 +24,7 @@ return {
             -- 2. FORMATTING: Clean up the list (Word + Type only)
             formatting = {
                 fields = { "abbr", "kind" },
-                format = function(entry, vim_item)
+                format = function(_, vim_item)
                     vim_item.menu = "" -- Removes extra labels like [LSP] or [Buffer]
                     vim_item.abbr = vim_item.abbr:match("[^(]+")
                     return vim_item
