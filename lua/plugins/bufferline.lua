@@ -51,9 +51,9 @@ return {
         end, { desc = "Close buffer safely" })
         -- === 1. NAVIGATION KEYMAPS ===
         -- Go to PREVIOUS buffer (Left)
-        vim.keymap.set("n", "+", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+        vim.keymap.set("n", "_", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
 
         -- Go to NEXT buffer (Right)
-        vim.keymap.set("n", "_", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+        vim.keymap.set("n", "+", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
     end
 }
