@@ -8,7 +8,6 @@ vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit'})
 
 -- The ultimate Home Row escape trick
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
-vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 
 local builtin = require('telescope.builtin')
 
