@@ -4,7 +4,8 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Go to lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to upper window' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save the file'})
-vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit'})
+-- Maps <leader>q (Space + q) to wipe the desk and return to the dashboard
+vim.keymap.set('n', '<leader>q', '<cmd>Neotree close<CR><cmd>enew<CR><cmd>Dashboard<CR>', { desc = 'Quit to Dashboard' })
 
 -- The ultimate Home Row escape trick
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
@@ -59,29 +60,36 @@ vim.keymap.set('n', '[d', function()
 end, { desc = "Prev Diagnostic" })
 
 vim.keymap.set('n', '<leader>c', function()
-  vim.cmd("w")
+    vim.cmd("w")
 
-  -- USE %:t TO FORCE ONLY THE FILENAME
-  -- %:t   = Tail (e.g. "test.c") -> Strips all folder paths
-  -- %:t:r = Tail Root (e.g. "test") -> Strips folder paths AND extension
-  local file = vim.fn.expand("%:t")
-  local file_no_ext = vim.fn.expand("%:t:r")
-  local ext = vim.fn.expand("%:e")
-  local cmd = ""
+    -- THE UPGRADE: Use %:p to grab the exact Absolute Path on your hard drive
+    -- %:p   = Full path (e.g., "C:/Users/Rei/.../src/test.c")
+    -- %:p:r = Full path no extension (e.g., "C:/Users/Rei/.../src/test")
+    -- %:p:h = Full directory path (e.g., "C:/Users/Rei/.../src")
+    local full_path = vim.fn.expand("%:p")
+    local full_path_no_ext = vim.fn.expand("%:p:r")
+    local file_dir = vim.fn.expand("%:p:h")
+    -- We still need these for Java
+    local file_tail = vim.fn.expand("%:t")
+    local file_tail_no_ext = vim.fn.expand("%:t:r")
+    local ext = vim.fn.expand("%:e")
+    local cmd = ""
 
-  if ext == "c" then
-    -- Result: gcc "test.c" -o "test.exe" && "test.exe"
-    local binary = file_no_ext .. ".exe"
-    cmd = "gcc \"" .. file .. "\" -o \"" .. binary .. "\" && \"" .. binary .. "\""
-  elseif ext == "py" then
-    -- Result: python "main.py"
-    cmd = "python \"" .. file .. "\""
-  elseif ext == "java" then
-    cmd = "javac \"" .. file .. "\" && java \"" .. file_no_ext .. "\""
-  else
-    print("Unknown file type!")
-    return
-  end
+    if ext == "c" then
+        -- Result: gcc "C:/.../test.c" -o "C:/.../test.exe" && "C:/.../test.exe"
+        cmd = "gcc \"" .. full_path .. "\" -o \"" .. full_path_no_ext .. ".exe\" && \"" .. full_path_no_ext .. ".exe\""
+    elseif ext == "py" then
+        -- Result: python "C:/.../main.py"
+        cmd = "python \"" .. full_path .. "\""
+    elseif ext == "java" then
+        -- Java is stubborn and hates absolute paths for execution. 
+        -- We temporarily 'cd' the terminal into the folder just for this one command.
+        -- (The '/d' ensures it works flawlessly on Windows CMD).
+        cmd = "cd /d \"" .. file_dir .. "\" && javac \"" .. file_tail .. "\" && java \"" .. file_tail_no_ext .. "\""
+    else
+        print("Unknown file type!")
+        return
+    end
 
   require("toggleterm").exec(cmd, 1, 20, nil, "float")
 

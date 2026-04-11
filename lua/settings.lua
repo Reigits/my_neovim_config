@@ -32,7 +32,7 @@ vim.opt.showtabline = 2
 vim.opt.fillchars = { eob = ' ' }
 vim.opt.signcolumn = "yes"
 vim.opt.splitright = true
-vim.opt.autochdir = true
+vim.opt.autochdir = false
 
 -- Force matching brackets to have a bright blue background and bold white text
 vim.api.nvim_set_hl(0, "MatchParen", { bg = "#0055ff", fg = "#ffffff", bold = true })
@@ -61,12 +61,3 @@ vim.api.nvim_set_hl(0, 'CmpItemKindStruct', { fg = '#ECCD6F' }) -- Structs!
 
 -- Green for Strings & Snippets
 vim.api.nvim_set_hl(0, 'CmpItemKindSnippet', { fg = '#D4D4D4' }) -- Or '#4EC9B0' for green
-
--- Treesitter settings
-vim.api.nvim_create_autocmd('FileType', {
-  -- REPLACE '<filetype>' with the languages you use
-  pattern = { 'c', 'python', 'lua', 'cpp', 'java' },
-  callback = function()
-    vim.treesitter.start()
-  end,
-})
