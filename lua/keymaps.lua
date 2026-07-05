@@ -17,5 +17,8 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- Exit from insert mode
 vim.keymap.set({ 'n' }, '<leader>q', ':q<CR>') -- Exit neovim
 vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- Save file
-vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- Open sidebar
 
+-- PLUGINS RELATED KEYMAPS --
+
+vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- Open sidebar
+vim.keymap.set({ 'n' }, '<leader>\\', ':ToggleTerm<CR>') -- Open terminal
