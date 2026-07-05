@@ -5,5 +5,6 @@ return
   opts = 
   {
 	  autochdir = true,
+	  direction = 'float',
   }
 }
