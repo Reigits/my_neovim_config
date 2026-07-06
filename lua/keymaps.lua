@@ -14,11 +14,12 @@ vim.keymap.set({ 'n' }, '<A-j>', '<C-w>j')
 vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
 vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 
-vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- Exit from insert mode
-vim.keymap.set({ 'n' }, '<leader>q', ':q<CR>') -- Exit neovim
-vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- Save file
+vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- exit from insert mode
+vim.keymap.set({ 'n' }, '<leader>q', ':q<CR>') -- exit neovim
+vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- save file
+vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
 
 -- PLUGINS RELATED KEYMAPS --
 
-vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- Open sidebar
-vim.keymap.set({ 'n' }, '<leader>\\', ':ToggleTerm<CR>') -- Open terminal
+vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- open sidebar
+vim.keymap.set({ 'n' }, '<leader>\\', ':ToggleTerm<CR>') -- open terminal
