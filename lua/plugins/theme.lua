@@ -23,6 +23,7 @@ return
       	c.bg_dark = "#000000"
       	c.bg_sidebar = "#111111"
       	c.bg_float = "#252526"
+        c.bg_visual = "#1a1a1a"
 
         -- git colors
         c.git =
@@ -41,7 +42,7 @@ return
 	hl.LineNrAbove  = { fg = "#5a5a5a" }
 	hl.LineNrBelow  = { fg = "#5a5a5a" }
 	hl.CursorLineNr = { fg = "#c6c6c6" }
-	hl.CursorLine   = { bg = "#3a3a3a" }
+	hl.CursorLine   = { bg = "#1a1a1a" }
 	hl.MatchParen   = { fg = "#00ff00" }
 
     -- color for certain keyword
