@@ -1,11 +1,9 @@
--- cmdline plugin basically
-
 return
 {
   "folke/noice.nvim",
   event = "VeryLazy",
-  opts = {
-    -- add any options here
+  opts =
+  {
   },
   dependencies = {
     "MunifTanjim/nui.nvim",
