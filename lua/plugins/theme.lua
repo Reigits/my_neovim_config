@@ -76,7 +76,7 @@ return
 	-- dashboard color setting
 	hl.DashboardIcon = { fg = "#569cd6" }
 	hl.DashboardDesc = { fg = "#ffffff" }
-	hl.DashboardKey = { fg = "#DA702C" }
+	hl.DashboardKey = { fg = "#D0A215" }
 	hl.DashboardHeader = { fg = "#ffffff" }
 
 	-- neotree color setting
@@ -86,6 +86,20 @@ return
 	hl.NeoTreeRootName = { fg = "#a0a0a0" }
 	hl.NeoTreeGitModified = { fg = "#DA702C" }
 	hl.NeoTreeIndentMarker = { fg = "#4a4a4a" }
+    hl.FloatBorder = { fg = "#767676" }
+
+    -- noice color setting
+    hl.NoiceCmdlinePopupBorder = { fg = "#767676" }
+    hl.NoiceCmdlinePopupTitle  = { fg = "#767676" }
+    hl.NoiceCmdlineIcon        = { fg = "#767676" }
+
+    hl.NoiceCmdlineIconInput        = { fg = "#767676" }
+    hl.NoiceCmdlinePopupBorderInput = { fg = "#767676" }
+    hl.NoiceCmdlinePopupTitleInput  = { fg = "#767676" }
+
+    hl.NoiceCmdlineIconLua        = { fg = "#767676" }
+    hl.NoiceCmdlinePopupBorderLua = { fg = "#767676" }
+    hl.NoiceCmdlinePopupTitleLua  = { fg = "#767676" }
 	end,
   },
   -- without this, the option won't be used
