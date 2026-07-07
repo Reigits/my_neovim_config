@@ -3,19 +3,19 @@ return
   'nvimdev/dashboard-nvim',
   lazy = false,
   event = 'VimEnter',
-  opts = 
+  opts =
   {
 	  theme = 'doom',
 	  disable_move = true,
-	  hide = 
+	  hide =
 	  {
 		  statusline = true,
 		  tabline = true,
 		  winbar = true,
 	  },
-	  config = 
+	  config =
 	  {
-		header = 
+		header =
 		{
 ' ██████   █████ ██████████    ███████    █████   █████ █████ ██████   ██████',
 '░░██████ ░░███ ░░███░░░░░█  ███░░░░░███ ░░███   ░░███ ░░███ ░░██████ ██████ ',
@@ -29,7 +29,7 @@ return
 '',
 '',
 		},
-        	center = 
+        	center =
 		{
 			{
 			  action = 'enew | cd /home/rei/Documents/neovim_code | Neotree reveal', -- replace with your own code directory!

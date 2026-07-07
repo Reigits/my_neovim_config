@@ -38,6 +38,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- set the update time
+vim.opt.updatetime = 256
+
 -- AUTOCOMMANDS (EVENT HANDLERS) --
 
 -- See `:h lua-guide-autocommands`, `:h autocmd`, `:h nvim_create_autocmd()`
@@ -51,10 +54,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- auto diagnostic on hover that you CANNOT focus
+vim.api.nvim_create_autocmd('CursorHold',
+{
+    desc = 'diagnostic on hover',
+    command = 'lua vim.diagnostic.open_float({ focusable = false })',
+})
+
 -- Sync clipboard between OS and Neovim. Schedule the setting after `UIEnter` because it can
 -- increase startup-time. Remove this option if you want your OS clipboard to remain independent.
 -- See `:h 'clipboard'`
-vim.api.nvim_create_autocmd('UIEnter', 
+vim.api.nvim_create_autocmd('UIEnter',
 {
   callback = function()
     vim.o.clipboard = 'unnamedplus'
