@@ -2,31 +2,31 @@ return
 {
 'nvim-lualine/lualine.nvim',
 dependencies = { 'nvim-tree/nvim-web-devicons' },
-opts = 
+opts =
 {
-    options = 
+    options =
     {
         theme = '16color'
     },
 sections =
 {
-    lualine_b = 
+    lualine_b =
     {
         {
             'branch'
         },
         {
             'diff',
-            diff_color = 
+            diff_color =
             {
-                added    = { fg = '#39ff14' },
-                modified = { fg = '#ff8700' },
-                removed  = { fg = '#ff4500' },
+                added    = { fg = '#00DD00' },
+                modified = { fg = '#FF8800' },
+                removed  = { fg = '#EE2436' },
             }
         },
         {
             'diagnostics'
-        },	
+        },
     }
 }
 }
