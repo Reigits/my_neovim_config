@@ -2,7 +2,7 @@
 --
 -- See `:h vim.keymap.set()`, `:h mapping`, `:h keycodes`
 
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>') -- Use <Esc> to exit terminal mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>') -- use <Esc> to exit terminal mode
 
 -- Map <A-j>, <A-k>, <A-h>, <A-l> to navigate between windows in any modes
 vim.keymap.set({ 't', 'i' }, '<A-h>', '<C-\\><C-n><C-w>h')
