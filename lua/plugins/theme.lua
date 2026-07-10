@@ -78,6 +78,7 @@ return
 	hl.DashboardDesc = { fg = "#ffffff" }
 	hl.DashboardKey = { fg = "#D0A215" }
 	hl.DashboardHeader = { fg = "#ffffff" }
+    hl.DashboardFooter = { fg = "#4a4a4a"}
 
 	-- neotree color setting
 	hl.NeoTreeFileName = { fg = "#ffffff" }
