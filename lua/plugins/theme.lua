@@ -101,6 +101,14 @@ return
     hl.NoiceCmdlineIconLua        = { fg = "#767676" }
     hl.NoiceCmdlinePopupBorderLua = { fg = "#767676" }
     hl.NoiceCmdlinePopupTitleLua  = { fg = "#767676" }
+
+    -- telescope color setting
+    hl.TelescopeBorder = { bg = "#111111", fg = "#767676"}
+    hl.TelescopeNormal = { bg = "#000000", fg = "#ffffff"}
+    hl.TelescopePromptBorder = { bg = "#000000", fg = "#ffffff"}
+    hl.TelescopePromptTitle = { bg = "#000000", fg = "#ffffff"}
+    hl.TelescopeResultsComment = { fg = "#4a4a4a"}
+    hl.TelescopePromptCounter = { fg = "#4a4a4a"}
 	end,
   },
   -- without this, the option won't be used
