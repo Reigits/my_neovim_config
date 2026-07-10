@@ -90,13 +90,13 @@ return
     hl.FloatBorder = { fg = "#767676" }
 
     -- noice color setting
-    hl.NoiceCmdlinePopupBorder = { fg = "#767676" }
-    hl.NoiceCmdlinePopupTitle  = { fg = "#767676" }
-    hl.NoiceCmdlineIcon        = { fg = "#767676" }
+    hl.NoiceCmdlinePopupBorder = { fg = "#ffffff" }
+    hl.NoiceCmdlinePopupTitle  = { fg = "#ffffff" }
+    hl.NoiceCmdlineIcon        = { fg = "#ffffff" }
 
-    hl.NoiceCmdlineIconInput        = { fg = "#767676" }
-    hl.NoiceCmdlinePopupBorderInput = { fg = "#767676" }
-    hl.NoiceCmdlinePopupTitleInput  = { fg = "#767676" }
+    hl.NoiceCmdlineIconInput        = { fg = "#ffffff" }
+    hl.NoiceCmdlinePopupBorderInput = { fg = "#ffffff" }
+    hl.NoiceCmdlinePopupTitleInput  = { fg = "#ffffff" }
 
     hl.NoiceCmdlineIconLua        = { fg = "#767676" }
     hl.NoiceCmdlinePopupBorderLua = { fg = "#767676" }
