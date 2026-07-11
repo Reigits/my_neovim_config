@@ -6,7 +6,8 @@ opts =
 {
     options =
     {
-        theme = '16color'
+        theme = '16color',
+        disabled_filetypes = {'neo-tree'} -- disabled lualine on neotree
     },
 sections =
 {
@@ -26,6 +27,20 @@ sections =
         },
         {
             'diagnostics'
+        },
+    },
+    lualine_z =
+    {
+        {'location'},
+        {
+            'datetime',
+            style = '%H:%M:%S',
+            color =
+            {
+                bg = '#808080',
+                fg = '#ffffff'
+            },
+            separator = { left = ''}
         },
     }
 }
