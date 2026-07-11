@@ -7,7 +7,6 @@ opts =
     options =
     {
         theme = '16color',
-        disabled_filetypes = {'neo-tree'} -- disabled lualine on neotree
     },
 sections =
 {
