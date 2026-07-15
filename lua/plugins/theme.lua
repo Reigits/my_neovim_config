@@ -35,8 +35,8 @@ return
 
     on_highlights = function(hl, c)
 	-- normal ui thing
-	hl.Normal       = { fg = "#d4d4d4", bg = c.bg }
-	hl.WinSeparator = { fg = "#000000", bg = c.bg }
+	hl.Normal       = { fg = "#ffffff", bg = "#000000" }
+	hl.WinSeparator = { fg = "#000000", bg = "#000000" }
 	hl.LineNr       = { fg = "#5a5a5a" }
 	hl.LineNrAbove  = { fg = "#5a5a5a" }
 	hl.LineNrBelow  = { fg = "#5a5a5a" }
@@ -86,8 +86,10 @@ return
 	hl.NeoTreeDirectoryIcon = { fg = "#ffc766" }
 	hl.NeoTreeRootName = { fg = "#a0a0a0" }
 	hl.NeoTreeGitModified = { fg = "#DA702C" }
+    hl.NeoTreeGitUntracked = { fg = "#D0A215"}
 	hl.NeoTreeIndentMarker = { fg = "#4a4a4a" }
     hl.FloatBorder = { fg = "#767676" }
+    hl.NeoTreeNormal = { fg = "#ffffff", bg = "#111111"}
 
     -- noice color setting
     hl.NoiceCmdlinePopupBorder = { fg = "#ffffff" }

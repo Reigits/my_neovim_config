@@ -44,6 +44,9 @@ vim.opt.updatetime = 256
 -- configure the statusline to only have 1 of its kind
 vim.opt.laststatus = 3
 
+-- needed for bufferline to work
+vim.opt.termguicolors = true
+
 -- AUTOCOMMANDS (EVENT HANDLERS) --
 
 -- See `:h lua-guide-autocommands`, `:h autocmd`, `:h nvim_create_autocmd()`
