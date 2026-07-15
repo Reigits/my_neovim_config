@@ -45,6 +45,13 @@ return
 	hl.MatchParen   = { fg = "#00ff00" }
     hl.IncSearch    = { fg = "#000000", bg = "#ffffff"} -- this is for when yanking the text those that briefly show what text being yanked
     hl.Visual       = { bg = "#2d2d2d"}
+    hl.NormalFloat = { bg = "#111111", fg = "#ffffff" }
+    hl.FloatBorder = { fg = "#ffffff", bg = "#111111"}
+
+    -- this is for that right click drop down menu
+    hl.Pmenu       = { bg = "#151515", fg = "#ffffff" }
+    hl.PmenuSel    = { bg = "#252526", fg = "#ffffff" }
+    hl.PmenuBorder = { fg = "#ffffff", bg = "#ffffff" }
 
     -- color for certain keyword
 	hl["@keyword"]  = { fg = "#719e37" }

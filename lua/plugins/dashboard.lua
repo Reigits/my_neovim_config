@@ -40,12 +40,12 @@ return
 			{
 			  action = 'enew | cd /home/rei/Documents/neovim_code | Neotree reveal', -- replace with your own code directory!
 			  desc = ' Code Workspace',
-			  icon = ' ',
+		      icon = ' ',
 			  key = 'w',
 			},
 			{
 			  action = 'Telescope oldfiles',
-			  desc = ' Recent files',
+			  desc = ' Recent Files',
 			  icon = ' ',
 			  key = 'r',
 			},
