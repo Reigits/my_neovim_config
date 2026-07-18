@@ -33,9 +33,10 @@ return
         }
     end,
 
-    on_highlights = function(hl, c)
+    on_highlights = function(hl)
 	-- normal ui thing
 	hl.Normal       = { fg = "#ffffff", bg = "#000000" }
+    hl.NormalNC     = { fg = "#8c8c8c"} -- this is the group that determines the color of the non selected buffer
 	hl.WinSeparator = { fg = "#000000", bg = "#000000" }
 	hl.LineNr       = { fg = "#5a5a5a" }
 	hl.LineNrAbove  = { fg = "#5a5a5a" }

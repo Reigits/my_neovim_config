@@ -83,9 +83,9 @@ return
 		},
 		vertical_center = true,
         footer = function()
-            local vim_version = vim.version()
-			local vim_str = string.format('%s.%s.%s', vim_version.major, vim_version.minor, vim_version.patch)
-            return
+            local vim_version = vim.version() -- get the version
+			local vim_str = string.format('%s.%s.%s', vim_version.major, vim_version.minor, vim_version.patch) -- split the version number
+            return -- return the version string
             {
 '',
 '',
