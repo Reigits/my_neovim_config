@@ -18,13 +18,40 @@ vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- exit from insert mode
 vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- save file
 vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
 vim.keymap.set({ 'n' }, '<leader>x', ':bd<CR>') -- delete current buffer
+vim.keymap.set({ 'n' }, '<leader>c', function()
+    local file_name = vim.fn.expand('%:t')
+    local file_name_no_extension = vim.fn.expand('%:t:r')
+    local file_directory = vim.fn.expand('%:p:h')
+    local file_extension = vim.fn.expand('%:e')
+    local cmd = ''
+    print('the file name is ' .. file_name)
+    print('the file name without extension is ' .. file_name_no_extension)
+    print('the file directory is ' .. file_directory)
+    print('the file extension is ' .. file_extension)
+    vim.cmd('cd ' .. file_directory)
+    -- if its a python file
+    if file_extension == 'py' then
+        cmd = 'python ' .. file_name
+    -- if its a c file
+    elseif file_extension == 'c' then
+        cmd = 'gcc ' .. file_name .. ' -o ' .. file_name_no_extension .. ' && ./' .. file_name_no_extension
+    -- if its a java file
+    elseif file_extension == 'java' then
+        cmd = 'javac ' .. file_name .. '&& java ' .. file_name_no_extension
+    else
+        print('Unknown file type!')
+        return
+    end
+    -- the cmd had to be wrapped in "" so its considered a single command
+    vim.cmd('TermExec cmd="' .. cmd .. '"')
+
+end) -- compile and run the program
 
 -- PLUGINS RELATED KEYMAPS --
 
 vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- open sidebar
 vim.keymap.set({ 'n' }, '<leader>\\', ':ToggleTerm<CR>') -- open terminal
-vim.keymap.set(
-    { 'n' }, '<leader>q', function()
+vim.keymap.set({ 'n' }, '<leader>q', function()
     vim.cmd('Neotree close')
     vim.cmd('%bdelete')
     vim.cmd('Dashboard')
