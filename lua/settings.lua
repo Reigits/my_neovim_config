@@ -15,6 +15,7 @@ vim.g.mapleader = ' '
 
 vim.o.number = true -- Show line numbers in a column.
 vim.o.wrap = false -- Disable the wrap
+vim.o.winborder = 'rounded' -- default border for floating window
 vim.opt.fillchars = { eob = ' '} -- Removed the '~' from the end of buffer
 
 -- Show line numbers relative to where the cursor is.
