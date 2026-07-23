@@ -19,32 +19,49 @@ vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- save file
 vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
 vim.keymap.set({ 'n' }, '<leader>x', ':bd<CR>') -- delete current buffer
 vim.keymap.set({ 'n' }, '<leader>c', function()
+    local file_name_and_directory = vim.fn.expand('%:p')
     local file_name = vim.fn.expand('%:t')
-    local file_name_no_extension = vim.fn.expand('%:t:r')
+    local file_name_no_extension_and_directory = vim.fn.expand('%:p:r')
+    local file_name_no_extension = vim.fn.expand('%:p:t:r')
     local file_directory = vim.fn.expand('%:p:h')
     local file_extension = vim.fn.expand('%:e')
     local cmd = ''
-    print('the file name is ' .. file_name)
-    print('the file name without extension is ' .. file_name_no_extension)
-    print('the file directory is ' .. file_directory)
-    print('the file extension is ' .. file_extension)
-    vim.cmd('cd ' .. file_directory)
+    --
+    -- for debugging purposes
+    -- print('the file name and the directory is ' .. file_name_and_directory)
+    -- print('the file name is ' .. file_name)
+    -- print('the file name without extension and directory is ' .. file_name_no_extension_and_directory)
+    -- print('the file name without extension is ' .. file_name_no_extension)
+    -- print('the file directory is ' .. file_directory)
+    -- print('the file extension is ' .. file_extension) 
+    --
     -- if its a python file
     if file_extension == 'py' then
-        cmd = 'python ' .. file_name
+        cmd = 'clear && python ' .. file_name_and_directory
     -- if its a c file
     elseif file_extension == 'c' then
-        cmd = 'gcc ' .. file_name .. ' -o ' .. file_name_no_extension .. ' && ./' .. file_name_no_extension
+        cmd = 'clear && gcc ' .. file_name_and_directory .. ' -o ' .. file_name_no_extension_and_directory .. ' && ' .. file_name_no_extension_and_directory
     -- if its a java file
     elseif file_extension == 'java' then
-        cmd = 'javac ' .. file_name .. '&& java ' .. file_name_no_extension
+        -- find the project root
+        local source_directory = vim.fs.root(0, 'src')
+        -- if it doesnt found the 'src' folder, fallback to the file directory
+        if not source_directory then
+            source_directory = file_directory
+        end
+        -- the bin folder
+        local bin_folder = source_directory .. '/bin'
+        --debugging purposes again
+        -- print('the source directory is ' .. source_directory)
+        -- print('the bin folder is in ' .. bin_folder)
+        --
+        cmd = 'clear && mkdir -p ' .. bin_folder .. ' && javac -d ' .. bin_folder .. ' ' .. file_name_and_directory .. ' && java -cp ' .. bin_folder .. ' ' .. file_name_no_extension
     else
         print('Unknown file type!')
         return
     end
     -- the cmd had to be wrapped in "" so its considered a single command
-    vim.cmd('TermExec cmd="' .. cmd .. '"')
-
+    require('toggleterm').exec(cmd)
 end) -- compile and run the program
 
 -- PLUGINS RELATED KEYMAPS --

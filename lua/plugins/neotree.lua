@@ -1,4 +1,4 @@
-return 
+return
 {
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -9,9 +9,9 @@ return
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
     lazy = false, -- neo-tree will lazily load itself
-    opts = 
+    opts =
     {
-	    close_if_last_window = true
+	    close_if_last_window = true,
     }
   }
 }
