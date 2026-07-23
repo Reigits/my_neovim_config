@@ -15,15 +15,28 @@ return
 	},
     transparent = false,
     terminal_colors = false,
+    dim_inactive = true,
 
     -- determining some color
     on_colors = function(c)
         -- some background color
-      	c.bg = "#000000"
-      	c.bg_dark = "#000000"
-      	c.bg_sidebar = "#111111"
-      	c.bg_float = "#252526"
+      	c.bg          = "#000000"
+        c.bg_dark     = "#000000"
+        c.bg_float    = "#111111"
+        c.bg_sidebar  = "#111111"
+        c.bg_popup    = "#151515"
+        c.bg_highlight= "#1a1a1a"
+        c.bg_visual   = "#2d2d2d"
+        c.bg_search   = "#ffffff"
 
+        c.fg          = "#ffffff"
+        c.fg_dark     = "#8c8c8c"
+        c.fg_float    = "#ffffff"
+        c.fg_gutter   = "#5a5a5a"
+        c.fg_sidebar  = "#ffffff"
+
+        c.border           = "#000000"
+        c.border_highlight = "#767676"
         -- git colors
         c.git =
         {
@@ -31,94 +44,110 @@ return
             change = '#FF8800',
             delete = '#EE2436',
         }
+
+        c.comment = "#4a4a4a"
+        c.orange  = "#FF8800"
+        c.yellow  = "#D0A215"
+        c.green   = "#00DD00"
+        c.teal    = "#3AA99F"
+        c.cyan    = "#569cd6"
+        c.blue    = "#4385BE"
+        c.purple  = "#8B7EC8"
+        c.magenta = "#CE5D97"
+        c.red     = "#EE2436"
+
+        c.terminal_black = "#5a5a5a"
     end,
 
     on_highlights = function(hl)
-	-- normal ui thing
-	hl.Normal       = { fg = "#ffffff", bg = "#000000" }
-    hl.NormalNC     = { fg = "#8c8c8c"} -- this is the group that determines the color of the non selected buffer
-	hl.WinSeparator = { fg = "#000000", bg = "#000000" }
-	hl.LineNr       = { fg = "#5a5a5a" }
-	hl.LineNrAbove  = { fg = "#5a5a5a" }
-	hl.LineNrBelow  = { fg = "#5a5a5a" }
-	hl.CursorLineNr = { fg = "#c6c6c6" }
-	hl.CursorLine   = { bg = "#1a1a1a" }
-	hl.MatchParen   = { fg = "#00ff00" }
-    hl.IncSearch    = { fg = "#000000", bg = "#ffffff"} -- this is for when yanking the text those that briefly show what text being yanked
-    hl.Visual       = { bg = "#2d2d2d"}
-    hl.NormalFloat = { bg = "#111111", fg = "#ffffff" }
-    hl.FloatBorder = { fg = "#ffffff", bg = "#111111"}
+        -- normal ui thing
+        hl.Normal       = { fg = "#ffffff", bg = "#000000" }
+        hl.NormalNC     = { fg = "#8c8c8c"} -- this is the group that determines the color of the non selected buffer
+        hl.WinSeparator = { fg = "#000000", bg = "#000000" }
+        hl.LineNr       = { fg = "#5a5a5a" }
+        hl.LineNrAbove  = { fg = "#5a5a5a" }
+        hl.LineNrBelow  = { fg = "#5a5a5a" }
+        hl.CursorLineNr = { fg = "#c6c6c6" }
+        hl.CursorLine   = { bg = "#1a1a1a" }
+        hl.MatchParen   = { fg = "#00ff00" }
+        hl.IncSearch    = { fg = "#000000", bg = "#FFFFFF"} -- this is for when yanking the text those that briefly show what text being yankedkj
+        hl.CurSearch    = { fg = "#000000", bg = "#FF8800"}
+        hl.Search       = { fg = "#000000", bg = "#FF8800"}
+        hl.Visual       = { bg = "#2d2d2d"}
+        hl.NormalFloat = { bg = "#111111", fg = "#ffffff" }
+        hl.FloatBorder = { fg = "#ffffff", bg = "#111111"}
 
-    -- this is for that right click drop down menu
-    hl.Pmenu       = { bg = "#151515", fg = "#ffffff" }
-    hl.PmenuSel    = { bg = "#252526", fg = "#ffffff" }
-    hl.PmenuBorder = { fg = "#ffffff", bg = "#ffffff" }
+        -- this is for that right click drop down menu
+        hl.Pmenu       = { bg = "#151515", fg = "#ffffff" }
+        hl.PmenuSel    = { bg = "#4a4a4a", fg = "#ffffff" }
+        hl.PmenuBorder = { fg = "#ffffff", bg = "#ffffff" }
 
-    -- color for certain keyword
-	hl["@keyword"]  = { fg = "#719e37" }
-    hl["@keyword.import"] = { fg = "#D14D41"}
-	hl["@keyword.function"] = { fg = "#719e37" }
-	hl["@string"]   = { fg = "#3AA99F" }
-	hl["@comment"]  = { fg = "#4a4a4a"}
-	hl["@number"]   = { fg = "#8B7EC8" }
-	hl["@boolean"]  = { fg = "#CE5D97" }
-	hl["@variable"] = { fg = "#4385BE" }
-    hl["@variable.builtin"] = { fg = "#D0A215"}
-	hl["@variable.member"] = { fg = "#4385BE" }
-	hl["@variable.parameter"] = { fg = "#4385BE" }
-	hl["@property"] = { fg = "#4385BE" }
-	hl["@field"]    = { fg = "#4385BE" }
-	hl["@function"]        = { fg = "#DA702C" }
-	hl["@function.builtin"] = { fg = "#DA702C" }
-	hl["@function.method"]  = { fg = "#DA702C" }
-	hl["@type"]            = { fg = "#D0A215" }
-	hl["@type.builtin"]    = { fg = "#767676" }
-    hl["@lsp.type.interface"] = { fg = "#D0A215" }
-	hl["@operator"]              = { fg = "#bcbcbc" }
-	hl["@punctuation.bracket"]   = { fg = "#bcbcbc" }
-	hl["@punctuation.delimiter"] = { fg = "#d4d4d4" }
-    hl.PreProc = { fg = "#D14D41" }
-    hl.Statement = { fg = "#879A39" }
-    hl.Special = { fg = "#767676"}
+        -- color for certain keyword
+        hl["@keyword"]  = { fg = "#719e37" }
+        hl["@keyword.import"] = { fg = "#D14D41"}
+        hl["@keyword.function"] = { fg = "#719e37" }
+        hl["@string"]   = { fg = "#3AA99F" }
+        hl["@comment"]  = { fg = "#4a4a4a"}
+        hl["@number"]   = { fg = "#8B7EC8" }
+        hl["@boolean"]  = { fg = "#CE5D97" }
+        hl["@variable"] = { fg = "#4385BE" }
+        hl["@variable.builtin"] = { fg = "#D0A215"}
+        hl["@variable.member"] = { fg = "#4385BE" }
+        hl["@variable.parameter"] = { fg = "#4385BE" }
+        hl["@property"] = { fg = "#4385BE" }
+        hl["@field"]    = { fg = "#4385BE" }
+        hl["@function"]        = { fg = "#DA702C" }
+        hl["@function.builtin"] = { fg = "#DA702C" }
+        hl["@function.method"]  = { fg = "#DA702C" }
+        hl["@type"]            = { fg = "#D0A215" }
+        hl["@type.builtin"]    = { fg = "#767676" }
+        hl["@lsp.type.interface"] = { fg = "#D0A215" }
+        hl["@operator"]              = { fg = "#bcbcbc" }
+        hl["@punctuation.bracket"]   = { fg = "#bcbcbc" }
+        hl["@punctuation.delimiter"] = { fg = "#d4d4d4" }
+        hl.PreProc = { fg = "#D14D41" }
+        hl.Statement = { fg = "#879A39" }
+        hl.Special = { fg = "#767676"}
 
-	-- dashboard color setting
-	hl.DashboardIcon = { fg = "#569cd6" }
-	hl.DashboardDesc = { fg = "#ffffff" }
-	hl.DashboardKey = { fg = "#D0A215" }
-	hl.DashboardHeader = { fg = "#ffffff" }
-    hl.DashboardFooter = { fg = "#4a4a4a"}
+        -- dashboard color setting
+        hl.DashboardIcon = { fg = "#569cd6" }
+        hl.DashboardDesc = { fg = "#ffffff" }
+        hl.DashboardKey = { fg = "#D0A215" }
+        hl.DashboardHeader = { fg = "#ffffff" }
+        hl.DashboardFooter = { fg = "#4a4a4a"}
 
-	-- neotree color setting
-	hl.NeoTreeFileName = { fg = "#ffffff" }
-	hl.NeoTreeDirectoryName = { fg = "#ffffff" }
-	hl.NeoTreeDirectoryIcon = { fg = "#ffc766" }
-	hl.NeoTreeRootName = { fg = "#a0a0a0" }
-	hl.NeoTreeGitModified = { fg = "#DA702C" }
-    hl.NeoTreeGitUntracked = { fg = "#D0A215"}
-	hl.NeoTreeIndentMarker = { fg = "#4a4a4a" }
-    hl.FloatBorder = { fg = "#767676" }
-    hl.NeoTreeNormal = { fg = "#ffffff", bg = "#111111"}
+        -- neotree color setting
+        hl.NeoTreeFileName = { fg = "#ffffff" }
+        hl.NeoTreeDirectoryName = { fg = "#ffffff" }
+        hl.NeoTreeDirectoryIcon = { fg = "#ffc766" }
+        hl.NeoTreeRootName = { fg = "#a0a0a0" }
+        hl.NeoTreeGitModified = { fg = "#DA702C" }
+        hl.NeoTreeGitUntracked = { fg = "#D0A215"}
+        hl.NeoTreeIndentMarker = { fg = "#4a4a4a" }
+        hl.FloatBorder = { fg = "#767676" }
+        hl.NeoTreeNormal = { fg = "#ffffff", bg = "#111111"}
 
-    -- noice color setting
-    hl.NoiceCmdlinePopupBorder = { fg = "#ffffff" }
-    hl.NoiceCmdlinePopupTitle  = { fg = "#ffffff" }
-    hl.NoiceCmdlineIcon        = { fg = "#ffffff" }
+        -- noice color setting
+        hl.NoiceCmdlinePopupBorder = { fg = "#ffffff" }
+        hl.NoiceCmdlinePopupTitle  = { fg = "#ffffff" }
+        hl.NoiceCmdlineIcon        = { fg = "#ffffff" }
 
-    hl.NoiceCmdlineIconInput        = { fg = "#ffffff" }
-    hl.NoiceCmdlinePopupBorderInput = { fg = "#ffffff" }
-    hl.NoiceCmdlinePopupTitleInput  = { fg = "#ffffff" }
+        hl.NoiceCmdlineIconInput        = { fg = "#ffffff" }
+        hl.NoiceCmdlinePopupBorderInput = { fg = "#ffffff" }
+        hl.NoiceCmdlinePopupTitleInput  = { fg = "#ffffff" }
 
-    hl.NoiceCmdlineIconLua        = { fg = "#767676" }
-    hl.NoiceCmdlinePopupBorderLua = { fg = "#767676" }
-    hl.NoiceCmdlinePopupTitleLua  = { fg = "#767676" }
+        hl.NoiceCmdlineIconLua        = { fg = "#767676" }
+        hl.NoiceCmdlinePopupBorderLua = { fg = "#767676" }
+        hl.NoiceCmdlinePopupTitleLua  = { fg = "#767676" }
 
-    -- telescope color setting
-    hl.TelescopeBorder = { bg = "#111111", fg = "#767676"}
-    hl.TelescopeNormal = { bg = "#000000", fg = "#ffffff"}
-    hl.TelescopePromptBorder = { bg = "#000000", fg = "#ffffff"}
-    hl.TelescopePromptTitle = { bg = "#000000", fg = "#ffffff"}
-    hl.TelescopeResultsComment = { fg = "#4a4a4a"}
-    hl.TelescopePromptCounter = { fg = "#4a4a4a"}
+        -- telescope color setting
+        hl.TelescopeBorder = { bg = "#111111", fg = "#767676"}
+        hl.TelescopeNormal = { bg = "#000000", fg = "#ffffff"}
+        hl.TelescopePromptBorder = { bg = "#000000", fg = "#ffffff"}
+        hl.TelescopePromptTitle = { bg = "#000000", fg = "#ffffff"}
+        hl.TelescopeResultsComment = { fg = "#4a4a4a"}
+        hl.TelescopePromptCounter = { fg = "#4a4a4a"}
+
 	end,
   },
   -- without this, the option won't be used
