@@ -48,9 +48,27 @@ vim.opt.laststatus = 3
 -- needed for bufferline to work
 vim.opt.termguicolors = true
 
+-- FOLDING STUFF
+vim.o.foldmethod = 'expr' -- set the method to expression
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- and use treesitter by default if the lsp doesnt support the folding
+vim.o.foldlevel = 99 -- basically open all fold when opening a new buffer
+vim.o.foldlevelstart = 99 -- basically force all the fold to be opened from the start
+
 -- AUTOCOMMANDS (EVENT HANDLERS) --
 
 -- See `:h lua-guide-autocommands`, `:h autocmd`, `:h nvim_create_autocmd()`
+
+-- change to using lsp if the thing actually support the folding (rn i disabled it cuz treesitter works better)
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   callback = function(ev)
+--     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--     if client:supports_method('textDocument/foldingRange') then
+--       local win = vim.api.nvim_get_current_win()
+--       vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+--     end
+--   end,
+-- })
+
 
 -- Highlight when yanking (copying) text.
 -- Try it with `yap` in normal mode. See `:h vim.hl.on_yank()`
