@@ -22,19 +22,10 @@ vim.keymap.set({ 'n' }, '<Esc>', ':nohlsearch<CR>') -- remove the highlight when
 vim.keymap.set({ 'n' }, '<leader>c', function()
     local file_name_and_directory = vim.fn.expand('%:p')
     local file_name_no_extension_and_directory = vim.fn.expand('%:p:r')
-    local file_name_no_extension = vim.fn.expand('%:p:t:r')
     local file_directory = vim.fn.expand('%:p:h')
     local file_extension = vim.fn.expand('%:e')
     local cmd = ''
-    --
-    -- for debugging purposes
-    -- print('the file name and the directory is ' .. file_name_and_directory)
-    -- print('the file name without extension and directory is ' .. file_name_no_extension_and_directory)
-    -- print('the file name without extension is ' .. file_name_no_extension)
-    -- print('the file directory is ' .. file_directory)
-    -- print('the file extension is ' .. file_extension) 
-    --
-    -- if its a python file
+     -- if its a python file
     if file_extension == 'py' then
         cmd = 'clear && python ' .. file_name_and_directory
     -- if its a c file
@@ -42,19 +33,19 @@ vim.keymap.set({ 'n' }, '<leader>c', function()
         cmd = 'clear && gcc ' .. file_name_and_directory .. ' -o ' .. file_name_no_extension_and_directory .. ' && ' .. file_name_no_extension_and_directory
     -- if its a java file
     elseif file_extension == 'java' then
-        -- find the project root, 0 means the current buffer, 'src' is the target file inside the main directory
-        local source_directory = vim.fs.root(0, 'src')
-        -- if it doesnt found the 'src' folder, fallback to the file directory
-        if not source_directory then
-            source_directory = file_directory
-        end
+        -- find the project root, 0 means the current buffer, 'src' is the target file inside the main directory (it includes the /src)
+        -- or fallback to file directory if there isnt any
+        local project_root = vim.fs.root(0, 'src') or file_directory
+        local source_directory = project_root .. '/src'
         -- the bin folder
-        local bin_folder = source_directory .. '/bin'
-        -- debugging purposes again
-        -- print('the source directory is ' .. source_directory)
-        -- print('the bin folder is in ' .. bin_folder)
-        --
-        cmd = 'clear && mkdir -p ' .. bin_folder .. ' && javac -d ' .. bin_folder .. ' ' .. file_name_and_directory .. ' && java -cp ' .. bin_folder .. ' ' .. file_name_no_extension
+        local bin_folder = project_root .. '/bin'
+        -- find the relative path of the main class file from 'src'
+        local rel_path = vim.fs.relpath(source_directory, file_name_and_directory)
+        -- and format the path as a standalone main class
+        local main_class = rel_path:gsub('%.java$', ''):gsub('/', '.')
+        -- okay this is the explanation, first clear the terminal, and then create the bin folder, then compile every java file
+        -- from src to the bin folder and then run the main class inside the bin folder
+        cmd = 'clear && mkdir -p "' .. bin_folder .. '" && javac -d "' .. bin_folder .. '" -sourcepath "' .. source_directory .. '" $(find "' .. source_directory .. '" -name "*.java") && java -cp "' .. bin_folder .. '" "' .. main_class .. '"'
     else
         print('Unknown file type!')
         return
