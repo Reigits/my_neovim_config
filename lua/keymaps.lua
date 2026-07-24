@@ -18,9 +18,9 @@ vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- exit from insert mode
 vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- save file
 vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
 vim.keymap.set({ 'n' }, '<leader>x', ':bd<CR>') -- delete current buffer
+vim.keymap.set({ 'n' }, '<Esc>', ':nohlsearch<CR>') -- remove the highlight when searching a keyword in a file
 vim.keymap.set({ 'n' }, '<leader>c', function()
     local file_name_and_directory = vim.fn.expand('%:p')
-    local file_name = vim.fn.expand('%:t')
     local file_name_no_extension_and_directory = vim.fn.expand('%:p:r')
     local file_name_no_extension = vim.fn.expand('%:p:t:r')
     local file_directory = vim.fn.expand('%:p:h')
@@ -29,7 +29,6 @@ vim.keymap.set({ 'n' }, '<leader>c', function()
     --
     -- for debugging purposes
     -- print('the file name and the directory is ' .. file_name_and_directory)
-    -- print('the file name is ' .. file_name)
     -- print('the file name without extension and directory is ' .. file_name_no_extension_and_directory)
     -- print('the file name without extension is ' .. file_name_no_extension)
     -- print('the file directory is ' .. file_directory)
@@ -43,7 +42,7 @@ vim.keymap.set({ 'n' }, '<leader>c', function()
         cmd = 'clear && gcc ' .. file_name_and_directory .. ' -o ' .. file_name_no_extension_and_directory .. ' && ' .. file_name_no_extension_and_directory
     -- if its a java file
     elseif file_extension == 'java' then
-        -- find the project root
+        -- find the project root, 0 means the current buffer, 'src' is the target file inside the main directory
         local source_directory = vim.fs.root(0, 'src')
         -- if it doesnt found the 'src' folder, fallback to the file directory
         if not source_directory then
@@ -51,7 +50,7 @@ vim.keymap.set({ 'n' }, '<leader>c', function()
         end
         -- the bin folder
         local bin_folder = source_directory .. '/bin'
-        --debugging purposes again
+        -- debugging purposes again
         -- print('the source directory is ' .. source_directory)
         -- print('the bin folder is in ' .. bin_folder)
         --
