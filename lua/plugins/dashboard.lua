@@ -38,7 +38,7 @@ return
         	center =
 		{
 			{
-			  action = 'enew | cd /home/rei/Documents/neovim_code | Neotree reveal', -- replace with your own code directory!
+			  action = 'enew | cd /home/reinux/Documents/neovim_code | Neotree reveal', -- replace with your own code directory!
 			  desc = ' Code Workspace',
 		      icon = ' ',
 			  key = 'w',
@@ -61,12 +61,6 @@ return
 			  desc = ' Update Plugins',
 			  icon = ' ',
 			  key = 'U',
-			},
-			{
-			  action = 'Mason',
-			  desc = ' Manage LSP',
-			  icon = '󱧕 ',
-			  key = 'M',
 			},
 			{
 			  action = 'restart',
