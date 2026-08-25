@@ -11,7 +11,6 @@ vim.lsp.config('clangd', {
     'clangd',
     '--background-index',
     '--clang-tidy',
-    '--query-driver=/run/current-system/sw/bin/*,/**/clang,/**/gcc,/**/g++',
   },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
   root_markers = { '.git', 'compile_commands.json', 'compile_flags.txt' },
