@@ -38,7 +38,7 @@ return
         	center =
 		{
 			{
-			  action = 'enew | cd /home/reinux/Documents/neovim_code | Neotree reveal', -- replace with your own code directory!
+			  action = 'enew | cd /home/reinux/Projects/neovim_code | Neotree reveal', -- replace with your own code directory!
 			  desc = ' Code Workspace',
 		      icon = ' ',
 			  key = 'w',
