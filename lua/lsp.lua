@@ -24,7 +24,10 @@ vim.lsp.config('lua_ls', {
   filetypes = { 'lua' },
   root_markers = { '.git', '.luarc.json', '.luarc.jsonc' },
   settings = {
-    Lua = {
+    Lua =
+    {
+      codeLens = { enable = true },
+      hint = { enable = true, semicolon = 'Disable' },
       diagnostics = {
         globals = { 'vim' },
       },
@@ -32,3 +35,24 @@ vim.lsp.config('lua_ls', {
   },
 })
 vim.lsp.enable("lua_ls")
+
+vim.lsp.config('html', {
+  cmd = { 'vscode-html-language-server', '--stdio' },
+  filetypes = { 'html', 'xhtml' },
+  root_markers = { 'package.json', '.git' },
+  init_options = {
+    provideFormatter = true,
+    embeddedLanguages = { css = true, javascript = true },
+    configurationSection = { "html", "css", "javascript" },
+  },
+  capabilities = {
+    textDocument = {
+      completion = {
+        completionItem = {
+          snippetSupport = true
+        }
+      }
+    }
+  }
+})
+vim.lsp.enable('html')
