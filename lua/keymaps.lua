@@ -70,3 +70,6 @@ vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>") -- telescope to f
 vim.keymap.set('n', '<leader>fg', ":Telescope live_grep<CR>") -- telescope to live and grab files with grep
 vim.keymap.set('n', '<leader>fb', ":Telescope buffers<CR>") -- telescope to find buffer
 vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>") -- telescope to find help tags
+
+vim.keymap.set('n', '<A-z>', '<Cmd>BufferPrevious<CR>') -- barbar.nvim previous buffer
+vim.keymap.set('n', '<A-x>', '<Cmd>BufferNext<CR>') -- barbar.nvim next buffer
