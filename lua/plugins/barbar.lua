@@ -10,6 +10,7 @@ return
   end,
   opts =
   {
+    exclude_name = {''},
     sidebar_filetypes =
     {
       -- prevent the bar from the neo-tree sidebar
