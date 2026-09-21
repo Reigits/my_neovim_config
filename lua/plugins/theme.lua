@@ -148,6 +148,50 @@ return
         hl.TelescopeResultsComment = { fg = "#4a4a4a"}
         hl.TelescopePromptCounter = { fg = "#4a4a4a"}
 
+        -- barbar color setting
+        hl.BufferTabpageFill = { bg = "#000001", fg = "#5a5a5a" }
+        hl.BufferTabpages    = { bg = "#000000", fg = "#5a5a5a" }
+        hl.BufferOffset      = { bg = "#111111", fg = "#767676" }
+
+        hl.BufferCurrent        = { bg = "#000000", fg = "#ffffff", bold = true }
+        hl.BufferCurrentSign    = { bg = "#000000", fg = "#ffffff", bold = true }
+        hl.BufferCurrentIndex   = { bg = "#000000", fg = "#D0A215" }
+        hl.BufferCurrentMod     = { bg = "#000000", fg = "#FF8800" }
+        hl.BufferCurrentTarget  = { bg = "#000000", fg = "#EE2436", bold = true }
+
+        hl.BufferCurrentADDED   = { bg = "#000000", fg = "#00DD00" }
+        hl.BufferCurrentCHANGED = { bg = "#000000", fg = "#FF8800" }
+        hl.BufferCurrentDELETED = { bg = "#000000", fg = "#EE2436" }
+        hl.BufferCurrentERROR   = { bg = "#000000", fg = "#EE2436" }
+        hl.BufferCurrentWARN    = { bg = "#000000", fg = "#D0A215" }
+        hl.BufferCurrentINFO    = { bg = "#000000", fg = "#569cd6" }
+        hl.BufferCurrentHINT    = { bg = "#000000", fg = "#3AA99F" }
+
+        hl.BufferInactive        = { bg = "#151515", fg = "#8c8c8c" }
+        hl.BufferInactiveSign    = { bg = "#151515", fg = "#4a4a4a" }
+        hl.BufferInactiveIndex   = { bg = "#151515", fg = "#5a5a5a" }
+        hl.BufferInactiveMod     = { bg = "#151515", fg = "#FF8800" }
+        hl.BufferInactiveTarget  = { bg = "#151515", fg = "#EE2436", bold = true }
+
+        hl.BufferInactiveADDED   = { bg = "#151515", fg = "#00DD00" }
+        hl.BufferInactiveCHANGED = { bg = "#151515", fg = "#FF8800" }
+        hl.BufferInactiveDELETED = { bg = "#151515", fg = "#EE2436" }
+        hl.BufferInactiveERROR   = { bg = "#151515", fg = "#EE2436" }
+        hl.BufferInactiveWARN    = { bg = "#151515", fg = "#D0A215" }
+        hl.BufferInactiveINFO    = { bg = "#151515", fg = "#569cd6" }
+        hl.BufferInactiveHINT    = { bg = "#151515", fg = "#3AA99F" }
+
+        hl.BufferAlternate       = { bg = "#1a1a1a", fg = "#c6c6c6" }
+        hl.BufferAlternateSign   = { bg = "#1a1a1a", fg = "#4a4a4a" }
+        hl.BufferAlternateIndex  = { bg = "#1a1a1a", fg = "#5a5a5a" }
+        hl.BufferAlternateMod    = { bg = "#1a1a1a", fg = "#FF8800" }
+        hl.BufferAlternateTarget = { bg = "#1a1a1a", fg = "#EE2436", bold = true }
+
+        hl.BufferVisible        = { bg = "#111111", fg = "#ffffff" }
+        hl.BufferVisibleSign    = { bg = "#111111", fg = "#4a4a4a" }
+        hl.BufferVisibleIndex   = { bg = "#111111", fg = "#767676" }
+        hl.BufferVisibleMod     = { bg = "#111111", fg = "#FF8800" }
+        hl.BufferVisibleTarget  = { bg = "#111111", fg = "#EE2436", bold = true }
 	end,
   },
   -- without this, the option won't be used
