@@ -73,3 +73,4 @@ vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>") -- telescope to fi
 
 vim.keymap.set('n', '<A-z>', '<Cmd>BufferPrevious<CR>') -- barbar.nvim previous buffer
 vim.keymap.set('n', '<A-x>', '<Cmd>BufferNext<CR>') -- barbar.nvim next buffer
+vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>') -- barbar.nvim close current buffer
