@@ -288,3 +288,12 @@ vim.lsp.config('html', {
   },
 })
 vim.lsp.enable('html')
+
+-- nix lsp setting
+
+vim.lsp.config('nixd',{
+  cmd = { 'nixd' },
+  filetypes = { 'nix' },
+  root_markers = { 'flake.nix', '.git' },
+})
+vim.lsp.enable('nixd')
