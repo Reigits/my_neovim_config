@@ -20,7 +20,7 @@ return
     -- C-k: Toggle signature help (if signature.enabled = true)
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = 'default' },
+    keymap = { preset = 'super-tab' },
     appearance =
     {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -60,6 +60,9 @@ return
     },
     -- disabled the autocompletion for while on string or comment
     enabled = function ()
+        if vim.bo.filetype == 'markdown' then
+            return false
+        end
         local success, node = pcall(vim.treesitter.get_node) -- we need to get the node type first using the treesitter (pcall returns 2 values)
         if success and node then -- if it succeed
             local node_type = node:type() -- get the node type

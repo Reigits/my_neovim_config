@@ -17,7 +17,7 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- exit from insert mode
 vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- save file
 vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
-vim.keymap.set({ 'n' }, '<leader>x', ':bd<CR>') -- delete current buffer
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename) -- rename
 vim.keymap.set({ 'n' }, '<Esc>', ':nohlsearch<CR>') -- remove the highlight when searching a keyword in a file
 vim.keymap.set({ 'n' }, '<leader>c', function()
     local file_name_and_directory = vim.fn.expand('%:p')
@@ -69,3 +69,7 @@ vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>") -- telescope to f
 vim.keymap.set('n', '<leader>fg', ":Telescope live_grep<CR>") -- telescope to live and grab files with grep
 vim.keymap.set('n', '<leader>fb', ":Telescope buffers<CR>") -- telescope to find buffer
 vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>") -- telescope to find help tags
+
+vim.keymap.set('n', '<A-z>', '<Cmd>BufferPrevious<CR>') -- barbar.nvim previous buffer
+vim.keymap.set('n', '<A-x>', '<Cmd>BufferNext<CR>') -- barbar.nvim next buffer
+vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>') -- barbar.nvim close current buffer

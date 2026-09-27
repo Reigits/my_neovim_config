@@ -2,9 +2,13 @@ return
 {
   'akinsho/toggleterm.nvim',
   version = '*',
-  opts = 
+  opts =
   {
 	  autochdir = true,
 	  direction = 'float',
+      float_opts =
+      {
+          border = 'curved',
+      }
   }
 }
