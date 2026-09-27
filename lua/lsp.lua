@@ -8,7 +8,6 @@ local function set_python_path(command)
   }
   for _, client in ipairs(clients) do
     if client.settings then
-      ---@diagnostic disable-next-line: param-type-mismatch
       client.settings.python = vim.tbl_deep_extend('force', client.settings.python or {}, { pythonPath = path })
     else
       client.config.settings = vim.tbl_deep_extend('force', client.config.settings, { python = { pythonPath = path } })
@@ -29,7 +28,6 @@ vim.lsp.config('basedpyright', {
     'Pipfile',
     '.git',
   },
-  ---@type lspconfig.settings.basedpyright
   settings = {
     basedpyright = {
       analysis = {
@@ -53,7 +51,6 @@ vim.lsp.config('basedpyright', {
       -- Using client.request() directly because "basedpyright.organizeimports" is private
       -- (not advertised via capabilities), which client:exec_cmd() refuses to call.
       -- https://github.com/neovim/neovim/blob/c333d64663d3b6e0dd9aa440e433d346af4a3d81/runtime/lua/vim/lsp/client.lua#L1024-L1030
-      ---@diagnostic disable-next-line: param-type-mismatch
       client.request('workspace/executeCommand', params, nil, bufnr)
     end, {
       desc = 'Organize Imports',
@@ -140,7 +137,6 @@ vim.lsp.config('clangd', {
     },
     offsetEncoding = { 'utf-8', 'utf-16' },
   },
-  ---@param init_result ClangdInitializeResult
   on_init = function(client, init_result)
     if init_result.offsetEncoding then
       client.offset_encoding = init_result.offsetEncoding
@@ -253,7 +249,6 @@ vim.lsp.config('lua_ls', {
   filetypes = { 'lua' },
   root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers1, root_markers2, { '.git' } }
     or vim.list_extend(vim.list_extend(root_markers1, root_markers2), { '.git' }),
-  ---@type lspconfig.settings.lua_ls
   settings = {
     Lua = {
       codeLens = { enable = true },
@@ -279,7 +274,6 @@ vim.lsp.config('html', {
   end,
   filetypes = { 'html' },
   root_markers = { 'package.json', '.git' },
-  ---@type lspconfig.settings.html
   settings = {},
   init_options = {
     provideFormatter = true,
