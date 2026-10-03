@@ -57,7 +57,7 @@ end) -- compile and run the program
 -- PLUGINS RELATED KEYMAPS --
 
 vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- open sidebar
-vim.keymap.set({ 'n' }, '<leader>\\', ':ToggleTerm<CR>') -- open terminal
+vim.keymap.set({ 'n' }, '<leader><leader>', ':ToggleTerm<CR>') -- open terminal
 vim.keymap.set({ 'n' }, '<leader>q', function()
     vim.cmd('Neotree close')
     vim.cmd('%bdelete')
