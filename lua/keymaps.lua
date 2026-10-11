@@ -15,7 +15,14 @@ vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
 vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 
 vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- exit from insert mode
-vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- save file
+vim.keymap.set({ 'n' }, '<leader>w', function ()
+    if vim.bo.modified then
+        vim.cmd('w')
+        print('file saved!')
+    else
+        print("you already saved it!")
+    end
+end) -- save file
 vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename) -- rename
 vim.keymap.set({ 'n' }, '<Esc>', ':nohlsearch<CR>') -- remove the highlight when searching a keyword in a file
@@ -47,7 +54,7 @@ vim.keymap.set({ 'n' }, '<leader>c', function()
         -- from src to the bin folder and then run the main class inside the bin folder
         cmd = 'clear && mkdir -p "' .. bin_folder .. '" && javac -d "' .. bin_folder .. '" -sourcepath "' .. source_directory .. '" $(find "' .. source_directory .. '" -name "*.java") && java -cp "' .. bin_folder .. '" "' .. main_class .. '"'
     else
-        print('Unknown file type!')
+        print('unknown file type!')
         return
     end
     -- the cmd had to be wrapped in "" so its considered a single command
@@ -57,7 +64,7 @@ end) -- compile and run the program
 -- PLUGINS RELATED KEYMAPS --
 
 vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- open sidebar
-vim.keymap.set({ 'n' }, '<leader>\\', ':ToggleTerm<CR>') -- open terminal
+vim.keymap.set({ 'n' }, '<leader><leader>', ':ToggleTerm<CR>') -- open terminal
 vim.keymap.set({ 'n' }, '<leader>q', function()
     vim.cmd('Neotree close')
     vim.cmd('%bdelete')
