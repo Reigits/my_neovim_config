@@ -54,7 +54,7 @@ vim.keymap.set({ 'n' }, '<leader>c', function()
         -- from src to the bin folder and then run the main class inside the bin folder
         cmd = 'clear && mkdir -p "' .. bin_folder .. '" && javac -d "' .. bin_folder .. '" -sourcepath "' .. source_directory .. '" $(find "' .. source_directory .. '" -name "*.java") && java -cp "' .. bin_folder .. '" "' .. main_class .. '"'
     else
-        print('Unknown file type!')
+        print('unknown file type!')
         return
     end
     -- the cmd had to be wrapped in "" so its considered a single command
