@@ -15,7 +15,14 @@ vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
 vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 
 vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- exit from insert mode
-vim.keymap.set({ 'n' }, '<leader>w', ':w<CR>') -- save file
+vim.keymap.set({ 'n' }, '<leader>w', function ()
+    if vim.bo.modified then
+        vim.cmd('w')
+        print('file saved!')
+    else
+        print("you already saved it!")
+    end
+end) -- save file
 vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename) -- rename
 vim.keymap.set({ 'n' }, '<Esc>', ':nohlsearch<CR>') -- remove the highlight when searching a keyword in a file
