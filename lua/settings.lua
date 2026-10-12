@@ -7,6 +7,9 @@ if vim.g.neovide then
     vim.g.neovide_refresh_rate = 60
     vim.g.neovide_refresh_rate_idle = 5
     vim.o.guifont = "MonaspiceAr Nerd Font Mono:h12"
+    vim.g.neovide_cursor_animate_in_insert_mode = true
+    vim.g.neovide_cursor_smooth_blink = true
+    vim.g.neovide_cursor_vfx_mode = "pixiedust"
 end
 -- Set <space> as the leader key
 -- See `:h mapleader`
