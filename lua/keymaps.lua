@@ -56,7 +56,7 @@ vim.keymap.set({ 'n' }, '<leader>c', function()
         -- from src to the bin folder and then run the main class inside the bin folder
         cmd = 'clear && mkdir -p "' .. bin_folder .. '" && javac -d "' .. bin_folder .. '" -sourcepath "' .. source_directory .. '" $(find "' .. source_directory .. '" -name "*.java") && java -cp "' .. bin_folder .. '" "' .. main_class .. '"'
     else
-        print('unknown file type!')
+        vim.notify('unknown file type!', vim.log.levels.WARN)
         return
     end
     -- the cmd had to be wrapped in "" so its considered a single command
@@ -68,11 +68,17 @@ end) -- compile and run the program
 vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- open sidebar
 vim.keymap.set({ 'n' }, '<leader><leader>', ':ToggleTerm<CR>') -- open terminal
 vim.keymap.set({ 'n' }, '<leader>q', function()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do -- this part basically checks if you have any loaded terminal and warns you if you have any
+        if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype == "toggleterm" then
+            vim.notify("you still have a terminal loaded, save your work.")
+            return
+        end
+    end
     vim.cmd('Neotree close')
     vim.cmd('%bdelete')
     vim.cmd('Dashboard')
 end
-) -- go back to dashboard
+) -- quit everything and go back to dashboard
 
 vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>") -- telescope to find files
 vim.keymap.set('n', '<leader>fg', ":Telescope live_grep<CR>") -- telescope to live and grab files with grep
