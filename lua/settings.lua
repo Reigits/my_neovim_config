@@ -1,5 +1,13 @@
 -- SETTINGS
 
+
+-- neovide setting
+if vim.g.neovide then
+    vim.g.neovide_fullscreen = true
+    vim.g.neovide_refresh_rate = 60
+    vim.g.neovide_refresh_rate_idle = 5
+    vim.o.guifont = "MonaspiceAr Nerd Font Mono:h12"
+end
 -- Set <space> as the leader key
 -- See `:h mapleader`
 -- NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
