@@ -16,7 +16,9 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 
 vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- exit from insert mode
 vim.keymap.set({ 'n' }, '<leader>w', function ()
-    if vim.bo.modified then
+    if vim.bo.filetype == "neo-tree" then
+        print("are you trying to save the sidebar?")
+    elseif vim.bo.modified then
         vim.cmd('w')
         print('file saved!')
     else
