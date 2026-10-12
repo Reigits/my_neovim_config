@@ -18,11 +18,14 @@ vim.keymap.set({ 'i' }, 'jk', '<Esc>') -- exit from insert mode
 vim.keymap.set({ 'n' }, '<leader>w', function ()
     if vim.bo.filetype == "neo-tree" then
         print("are you trying to save the sidebar?")
+        vim.cmd("redraw")
     elseif vim.bo.modified then
         vim.cmd('w')
         print('file saved!')
+        vim.cmd("redraw")
     else
         print("you already saved it!")
+        vim.cmd("redraw")
     end
 end) -- save file
 vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
