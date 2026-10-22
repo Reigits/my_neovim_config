@@ -10,6 +10,10 @@ if vim.g.neovide then
     vim.g.neovide_cursor_animate_in_insert_mode = true
     vim.g.neovide_cursor_smooth_blink = true
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
+
+    vim.keymap.set('n', '<F11>', function()
+      vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+    end) -- toggle fullscreen
 end
 -- Set <space> as the leader key
 -- See `:h mapleader`
