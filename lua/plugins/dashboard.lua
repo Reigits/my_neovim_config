@@ -79,19 +79,34 @@ return
         footer = function()
             local vim_version = vim.version() -- get the version
 			local vim_str = string.format('%s.%s.%s', vim_version.major, vim_version.minor, vim_version.patch) -- split the version number
-            return -- return the version string
-            {
-'',
-'',
-'',
-'',
-'',
-'',
-'',
-'',
-'',
-'NeoVim version: ' .. vim_str,
-            }
+            if vim.g.neovide then
+				local neovide_str = vim.trim((string.gsub(vim.fn.system('neovide --version'),"neovide ", "")))
+				return {
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'Neovim version: ' .. vim_str .. " | " .. 'Neovide version: ' .. neovide_str,
+				}
+            else
+				return{
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'Neovim version: ' .. vim_str,
+				}
+            end
         end,
 	  },
 	},
