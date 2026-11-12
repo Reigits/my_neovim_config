@@ -55,8 +55,9 @@ vim.keymap.set({ 'n' }, '<leader>c', function()
         -- okay this is the explanation, first clear the terminal, and then create the bin folder, then compile every java file
         -- from src to the bin folder and then run the main class inside the bin folder
         cmd = 'clear && mkdir -p "' .. bin_folder .. '" && javac -d "' .. bin_folder .. '" -sourcepath "' .. source_directory .. '" $(find "' .. source_directory .. '" -name "*.java") && java -cp "' .. bin_folder .. '" "' .. main_class .. '"'
+    -- if its a dart file
     elseif file_extension == "dart" then
-        cmd = "dart run " .. file_name_and_directory
+        cmd = "clear && dart run " .. file_name_and_directory
     else
         vim.notify('unknown file type!', vim.log.levels.WARN)
         return
