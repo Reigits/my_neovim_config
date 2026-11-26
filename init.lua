@@ -1,5 +1,5 @@
+print('Hello World!')
 require('config.lazy')
 require('settings')
 require('keymaps')
 require('lsp')
-require('experimental')
