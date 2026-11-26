@@ -68,6 +68,14 @@ end) -- compile and run the program
 
 -- PLUGINS RELATED KEYMAPS --
 
+-- mini.files function
+local minifiles_toggle = function ()
+    if not MiniFiles.close() then
+        MiniFiles.open(vim.api.nvim_buf_get_name(0))
+        end
+    end
+
+vim.keymap.set({ 'n' }, '<leader>e', minifiles_toggle, {silent = true}) -- open file explorer
 vim.keymap.set({ 'n' }, '<leader><leader>', ':ToggleTerm<CR>', {silent = true}) -- open terminal
 vim.keymap.set({ 'n' }, '<leader>q', function()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do -- this part basically checks if you have any loaded terminal and warns you if you have any
@@ -76,9 +84,8 @@ vim.keymap.set({ 'n' }, '<leader>q', function()
             return
         end
     end
-    vim.cmd('Neotree close')
     vim.cmd('%bdelete')
-    vim.cmd('Dashboard')
+    vim.cmd('lua MiniStarter.open()')
 end
 ) -- quit everything and go back to dashboard
 

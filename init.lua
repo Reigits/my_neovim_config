@@ -1,4 +1,4 @@
-print('Hello World!')
+vim.notify('Hello World!')
 require('config.lazy')
 require('settings')
 require('keymaps')

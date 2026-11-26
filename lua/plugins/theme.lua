@@ -192,11 +192,33 @@ return
         hl.BufferVisibleIndex   = { bg = "#111111", fg = "#767676" }
         hl.BufferVisibleMod     = { bg = "#111111", fg = "#FF8800" }
         hl.BufferVisibleTarget  = { bg = "#111111", fg = "#EE2436", bold = true }
-	end,
-  },
-  -- without this, the option won't be used
-  config = function(_, opts)
-    require('tokyonight').setup(opts)
-    vim.cmd('colorscheme tokyonight')
-  end,
-}
+
+        -- mini.nvim colors
+hl.MiniStarterCurrent    = { nocombine = true }
+        hl.MiniStarterHeader     = { fg = "#ffffff", bold = true }
+        hl.MiniStarterFooter     = { fg = "#4a4a4a", italic = true }
+        hl.MiniStarterInactive   = { fg = "#4a4a4a" }
+        hl.MiniStarterItem       = { fg = "#ffffff", bg = "#000000" }
+        hl.MiniStarterItemBullet = { fg = "#767676" }
+        hl.MiniStarterItemPrefix = { fg = "#D0A215" }
+        hl.MiniStarterQuery      = { fg = "#569cd6", bold = true }
+        hl.MiniStarterSection    = { fg = "#4385BE", bold = true }
+
+        hl.MiniStatuslineDevinfo     = { fg = "#ffffff", bg = "#808080" }
+        hl.MiniStatuslineFileinfo    = { fg = "#ffffff", bg = "#808080" }
+        hl.MiniStatuslineFilename    = { fg = "#c0c0c0", bg = "#000000" }
+        hl.MiniStatuslineInactive    = { fg = "#c0c0c0", bg = "#000000" }
+        hl.MiniStatuslineModeCommand = { fg = "#ffffff", bg = "#0000ff", bold = true }
+        hl.MiniStatuslineModeInsert  = { fg = "#ffffff", bg = "#008000", bold = true }
+        hl.MiniStatuslineModeNormal  = { fg = "#ffffff", bg = "#0000ff", bold = true }
+        hl.MiniStatuslineModeOther   = { fg = "#ffffff", bg = "#008080", bold = true }
+        hl.MiniStatuslineModeReplace = { fg = "#ffffff", bg = "#ff0000", bold = true }
+        hl.MiniStatuslineModeVisual  = { fg = "#ffffff", bg = "#800080", bold = true }
+        end,
+      },
+      -- without this, the option won't be used
+      config = function(_, opts)
+        require('tokyonight').setup(opts)
+        vim.cmd('colorscheme tokyonight')
+      end,
+    }
