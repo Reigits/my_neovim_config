@@ -102,11 +102,25 @@ vim.api.nvim_create_autocmd('CursorHold',
 })
 
 -- autosave html and css file for live preview
-vim.api.nvim_create_autocmd({'InsertLeave', 'TextChanged'},
-{
-    pattern = {"*.html", "*.css", "*.js"},
-    desc = 'auto save html, css and js file',
-    command = 'silent! write',
+local autosave_timer = nil
+
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  pattern = "*",
+  desc = "Debounced autosave on change",
+  callback = function()
+    -- If a timer is already running, cancel it
+    if autosave_timer ~= nil then
+      autosave_timer:stop()
+      autosave_timer:close()
+      autosave_timer = nil
+    end
+
+    -- Start a new timer (1000 milliseconds = 1 second of inactivity)
+    autosave_timer = vim.defer_fn(function()
+      vim.cmd("silent! write")
+      autosave_timer = nil
+    end, 1000)
+  end,
 })
 
 vim.api.nvim_create_autocmd('FileType',
