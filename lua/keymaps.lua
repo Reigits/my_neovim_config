@@ -68,7 +68,6 @@ end) -- compile and run the program
 
 -- PLUGINS RELATED KEYMAPS --
 
-vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>', {silent = true}) -- open sidebar
 vim.keymap.set({ 'n' }, '<leader><leader>', ':ToggleTerm<CR>', {silent = true}) -- open terminal
 vim.keymap.set({ 'n' }, '<leader>q', function()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do -- this part basically checks if you have any loaded terminal and warns you if you have any
@@ -83,11 +82,3 @@ vim.keymap.set({ 'n' }, '<leader>q', function()
 end
 ) -- quit everything and go back to dashboard
 
-vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>", {silent = true}) -- telescope to find files
-vim.keymap.set('n', '<leader>fg', ":Telescope live_grep<CR>", {silent = true}) -- telescope to live and grab files with grep
-vim.keymap.set('n', '<leader>fb', ":Telescope buffers<CR>", {silent = true}) -- telescope to find buffer
-vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>", {silent = true}) -- telescope to find help tags
-
-vim.keymap.set('n', '<A-z>', '<Cmd>BufferPrevious<CR>') -- barbar.nvim previous buffer
-vim.keymap.set('n', '<A-x>', '<Cmd>BufferNext<CR>') -- barbar.nvim next buffer
-vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>') -- barbar.nvim close current buffer
