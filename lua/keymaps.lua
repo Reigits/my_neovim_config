@@ -25,9 +25,9 @@ vim.keymap.set({ 'n' }, '<leader>w', function ()
         vim.notify("you already saved it!", vim.log.levels.WARN)
     end
 end) -- save file
-vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>') -- inspect element
+vim.keymap.set({ 'n' }, '<leader>i', ':Inspect<CR>', {silent = true}) -- inspect element
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename) -- rename
-vim.keymap.set({ 'n' }, '<Esc>', ':nohlsearch<CR>') -- remove the highlight when searching a keyword in a file
+vim.keymap.set({ 'n' }, '<Esc>', ':nohlsearch<CR>', {silent = true}) -- remove the highlight when searching a keyword in a file
 vim.keymap.set({ 'n' }, '<leader>c', function()
     local file_name_and_directory = vim.fn.expand('%:p')
     local file_name_no_extension_and_directory = vim.fn.expand('%:p:r')
@@ -68,8 +68,8 @@ end) -- compile and run the program
 
 -- PLUGINS RELATED KEYMAPS --
 
-vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>') -- open sidebar
-vim.keymap.set({ 'n' }, '<leader><leader>', ':ToggleTerm<CR>') -- open terminal
+vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>', {silent = true}) -- open sidebar
+vim.keymap.set({ 'n' }, '<leader><leader>', ':ToggleTerm<CR>', {silent = true}) -- open terminal
 vim.keymap.set({ 'n' }, '<leader>q', function()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do -- this part basically checks if you have any loaded terminal and warns you if you have any
         if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype == "toggleterm" then
@@ -83,10 +83,10 @@ vim.keymap.set({ 'n' }, '<leader>q', function()
 end
 ) -- quit everything and go back to dashboard
 
-vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>") -- telescope to find files
-vim.keymap.set('n', '<leader>fg', ":Telescope live_grep<CR>") -- telescope to live and grab files with grep
-vim.keymap.set('n', '<leader>fb', ":Telescope buffers<CR>") -- telescope to find buffer
-vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>") -- telescope to find help tags
+vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>", {silent = true}) -- telescope to find files
+vim.keymap.set('n', '<leader>fg', ":Telescope live_grep<CR>", {silent = true}) -- telescope to live and grab files with grep
+vim.keymap.set('n', '<leader>fb', ":Telescope buffers<CR>", {silent = true}) -- telescope to find buffer
+vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>", {silent = true}) -- telescope to find help tags
 
 vim.keymap.set('n', '<A-z>', '<Cmd>BufferPrevious<CR>') -- barbar.nvim previous buffer
 vim.keymap.set('n', '<A-x>', '<Cmd>BufferNext<CR>') -- barbar.nvim next buffer
