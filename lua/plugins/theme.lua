@@ -194,7 +194,7 @@ return
         hl.BufferVisibleTarget  = { bg = "#111111", fg = "#EE2436", bold = true }
 
         -- mini.nvim colors
-hl.MiniStarterCurrent    = { nocombine = true }
+        hl.MiniStarterCurrent    = { nocombine = true }
         hl.MiniStarterHeader     = { fg = "#ffffff", bold = true }
         hl.MiniStarterFooter     = { fg = "#4a4a4a", italic = true }
         hl.MiniStarterInactive   = { fg = "#4a4a4a" }
