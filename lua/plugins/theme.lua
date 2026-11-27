@@ -223,6 +223,15 @@ return
         hl.MiniTablineModifiedVisible = { fg = "#FF8800", bg = "#111111" }
         hl.MiniTablineTabpagesection  = { fg = "#5a5a5a", bg = "#000000" }
         hl.MiniTablineVisible         = { fg = "#ffffff", bg = "#111111" }
+
+        -- mini.diff colors
+        hl.MiniDiffOverAdd     = { bg = "#002600" }
+        hl.MiniDiffOverChange  = { bg = "#3d2200" }
+        hl.MiniDiffOverContext = { bg = "#1f1200" }
+        hl.MiniDiffOverDelete  = { bg = "#2b060a" }
+        hl.MiniDiffSignAdd     = { fg = "#00DD00" }
+        hl.MiniDiffSignChange  = { fg = "#FF8800" }
+        hl.MiniDiffSignDelete  = { fg = "#EE2436" }
         end,
       },
       -- without this, the option won't be used
