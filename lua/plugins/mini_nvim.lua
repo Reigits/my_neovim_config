@@ -2,6 +2,8 @@ return
 {
     'nvim-mini/mini.nvim', version = false,
     config = function()
+        require("mini.diff").setup()
+
         require("mini.cmdline").setup()
 
         require("mini.completion").setup()
