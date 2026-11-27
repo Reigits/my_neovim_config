@@ -64,7 +64,6 @@ return
                         vim.cmd.edit(config_dir .. "/init.lua")
                     end, section = "Config" },
                     { name = "Lazy Plugins", action = "Lazy",       section = "Config" },
-                    { name = "Restart",      action = "restart",    section = "Config" },
                     { name = "Quit",         action = "qa",         section = "Config" },
                 },
                 footer = function()
