@@ -4,6 +4,8 @@ return
     config = function()
         require("mini.diff").setup()
 
+        require("mini.icons").setup()
+
         require("mini.cmdline").setup()
 
         require("mini.completion").setup()
