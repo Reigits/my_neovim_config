@@ -214,6 +214,15 @@ return
         hl.MiniStatuslineModeOther   = { fg = "#ffffff", bg = "#008080", bold = true }
         hl.MiniStatuslineModeReplace = { fg = "#ffffff", bg = "#ff0000", bold = true }
         hl.MiniStatuslineModeVisual  = { fg = "#ffffff", bg = "#800080", bold = true }
+
+        hl.MiniTablineCurrent         = { fg = "#ffffff", bg = "#000000", bold = true }
+        hl.MiniTablineFill            = { bg = "#000000" }
+        hl.MiniTablineHidden          = { fg = "#8c8c8c", bg = "#151515" }
+        hl.MiniTablineModifiedCurrent = { fg = "#FF8800", bg = "#000000", bold = true }
+        hl.MiniTablineModifiedHidden  = { fg = "#FF8800", bg = "#151515" }
+        hl.MiniTablineModifiedVisible = { fg = "#FF8800", bg = "#111111" }
+        hl.MiniTablineTabpagesection  = { fg = "#5a5a5a", bg = "#000000" }
+        hl.MiniTablineVisible         = { fg = "#ffffff", bg = "#111111" }
         end,
       },
       -- without this, the option won't be used
