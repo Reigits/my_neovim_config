@@ -134,24 +134,6 @@ vim.api.nvim_create_autocmd('FileType',
     end
 })
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "MiniStarterOpened",
-  callback = function(args)
-    vim.opt.laststatus = 0
-    vim.opt.showtabline = 0
-
-    -- Restore them automatically when you leave the starter buffer
-    vim.api.nvim_create_autocmd("BufLeave", {
-      buffer = args.buf,
-      once = true,
-      callback = function()
-        vim.opt.laststatus = 3 -- Or 2 if you don't use global statusline
-        vim.opt.showtabline = 1 -- Or 2 if you always show tabline
-      end,
-    })
-  end,
-})
-
 -- Sync clipboard between OS and Neovim. Schedule the setting after `UIEnter` because it can
 -- increase startup-time. Remove this option if you want your OS clipboard to remain independent.
 -- See `:h 'clipboard'`
