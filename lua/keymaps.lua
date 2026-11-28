@@ -68,7 +68,12 @@ end) -- compile and run the program
 
 -- PLUGINS RELATED KEYMAPS --
 
-vim.keymap.set({ 'n' }, '<leader>e', ':Neotree toggle<CR>', {silent = true}) -- open sidebar
+vim.keymap.set({ 'n' }, '<leader>e', function ()
+    if vim.bo.filetype == "dashboard" then
+       return
+    end
+    vim.cmd("Neotree toggle")
+end, {silent = true}) -- open sidebar
 vim.keymap.set({ 'n' }, '<leader><leader>', ':ToggleTerm<CR>', {silent = true}) -- open terminal
 vim.keymap.set({ 'n' }, '<leader>q', function()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do -- this part basically checks if you have any loaded terminal and warns you if you have any
