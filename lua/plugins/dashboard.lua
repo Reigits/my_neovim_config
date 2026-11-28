@@ -56,6 +56,12 @@ return
 			  icon = ' ',
 			  key = 'c',
 			},
+            {
+                action = "TSManager",
+                desc = " Treesitter Manager",
+                icon = " ",
+                key = "t",
+            },
 			{
 			  action = 'Lazy update',
 			  desc = ' Update Plugins',

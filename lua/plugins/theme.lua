@@ -153,33 +153,33 @@ return
         hl.BufferTabpages    = { bg = "#000000", fg = "#5a5a5a" }
         hl.BufferOffset      = { bg = "#111111", fg = "#767676" }
 
-        hl.BufferCurrent        = { bg = "#000000", fg = "#ffffff", bold = true }
-        hl.BufferCurrentSign    = { bg = "#000000", fg = "#ffffff", bold = true }
-        hl.BufferCurrentIndex   = { bg = "#000000", fg = "#D0A215" }
-        hl.BufferCurrentMod     = { bg = "#000000", fg = "#FF8800" }
-        hl.BufferCurrentTarget  = { bg = "#000000", fg = "#EE2436", bold = true }
+        hl.BufferCurrent        = { bg = "#151515", fg = "#ffffff", bold = true }
+        hl.BufferCurrentSign    = { bg = "#151515", fg = "#ffffff", bold = true }
+        hl.BufferCurrentIndex   = { bg = "#151515", fg = "#D0A215" }
+        hl.BufferCurrentMod     = { bg = "#151515", fg = "#FF8800" }
+        hl.BufferCurrentTarget  = { bg = "#151515", fg = "#EE2436", bold = true }
 
-        hl.BufferCurrentADDED   = { bg = "#000000", fg = "#00DD00" }
-        hl.BufferCurrentCHANGED = { bg = "#000000", fg = "#FF8800" }
-        hl.BufferCurrentDELETED = { bg = "#000000", fg = "#EE2436" }
-        hl.BufferCurrentERROR   = { bg = "#000000", fg = "#EE2436" }
-        hl.BufferCurrentWARN    = { bg = "#000000", fg = "#D0A215" }
-        hl.BufferCurrentINFO    = { bg = "#000000", fg = "#569cd6" }
-        hl.BufferCurrentHINT    = { bg = "#000000", fg = "#3AA99F" }
+        hl.BufferCurrentADDED   = { bg = "#151515", fg = "#00DD00" }
+        hl.BufferCurrentCHANGED = { bg = "#151515", fg = "#FF8800" }
+        hl.BufferCurrentDELETED = { bg = "#151515", fg = "#EE2436" }
+        hl.BufferCurrentERROR   = { bg = "#151515", fg = "#EE2436" }
+        hl.BufferCurrentWARN    = { bg = "#151515", fg = "#D0A215" }
+        hl.BufferCurrentINFO    = { bg = "#151515", fg = "#569cd6" }
+        hl.BufferCurrentHINT    = { bg = "#151515", fg = "#3AA99F" }
 
-        hl.BufferInactive        = { bg = "#151515", fg = "#8c8c8c" }
-        hl.BufferInactiveSign    = { bg = "#151515", fg = "#4a4a4a" }
-        hl.BufferInactiveIndex   = { bg = "#151515", fg = "#5a5a5a" }
-        hl.BufferInactiveMod     = { bg = "#151515", fg = "#FF8800" }
-        hl.BufferInactiveTarget  = { bg = "#151515", fg = "#EE2436", bold = true }
+        hl.BufferInactive        = { bg = "#000000", fg = "#8c8c8c" }
+        hl.BufferInactiveSign    = { bg = "#000000", fg = "#4a4a4a" }
+        hl.BufferInactiveIndex   = { bg = "#000000", fg = "#5a5a5a" }
+        hl.BufferInactiveMod     = { bg = "#000000", fg = "#FF8800" }
+        hl.BufferInactiveTarget  = { bg = "#000000", fg = "#EE2436", bold = true }
 
-        hl.BufferInactiveADDED   = { bg = "#151515", fg = "#00DD00" }
-        hl.BufferInactiveCHANGED = { bg = "#151515", fg = "#FF8800" }
-        hl.BufferInactiveDELETED = { bg = "#151515", fg = "#EE2436" }
-        hl.BufferInactiveERROR   = { bg = "#151515", fg = "#EE2436" }
-        hl.BufferInactiveWARN    = { bg = "#151515", fg = "#D0A215" }
-        hl.BufferInactiveINFO    = { bg = "#151515", fg = "#569cd6" }
-        hl.BufferInactiveHINT    = { bg = "#151515", fg = "#3AA99F" }
+        hl.BufferInactiveADDED   = { bg = "#000000", fg = "#00DD00" }
+        hl.BufferInactiveCHANGED = { bg = "#000000", fg = "#FF8800" }
+        hl.BufferInactiveDELETED = { bg = "#000000", fg = "#EE2436" }
+        hl.BufferInactiveERROR   = { bg = "#000000", fg = "#EE2436" }
+        hl.BufferInactiveWARN    = { bg = "#000000", fg = "#D0A215" }
+        hl.BufferInactiveINFO    = { bg = "#000000", fg = "#569cd6" }
+        hl.BufferInactiveHINT    = { bg = "#000000", fg = "#3AA99F" }
 
         hl.BufferAlternate       = { bg = "#1a1a1a", fg = "#c6c6c6" }
         hl.BufferAlternateSign   = { bg = "#1a1a1a", fg = "#4a4a4a" }
